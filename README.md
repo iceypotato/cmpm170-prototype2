@@ -1,2 +1,3 @@
 # cmpm170-prototype2
-Ligma
+
+Our group is making a game inspired by the Fruit Tetris like game titled Suika. We are using the Crisp GameLib by Kenta Cho.
