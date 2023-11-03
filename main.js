@@ -34,6 +34,7 @@ function generateShape() {
 
 function init() {
     player = {pos: vec(50, 10), vel: vec()};
+    player.pos.clamp(0, G.WIDTH, 0, G.HEIGHT);
     shapes = [];
 }
 
