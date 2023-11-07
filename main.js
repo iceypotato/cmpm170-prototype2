@@ -2,8 +2,20 @@ title = "Not Suika Game";
 
 description = `Color \n shapes \n combiner`;
 
-characters = [];
+characters = [
+`
+  cc    
+ cccc
+cccccc
+`
+];
 
+const G = {
+    W: 100,
+    H: 100
+}
+
+// default viewsize is 100x100
 options = {
     theme: "shapeDark",
 };
@@ -14,26 +26,42 @@ let shapes;
 function update() {
     if (!ticks) {
         init()
-    };
-
-    if (input.isJustPressed) {
-        
-        console.log("Ball Dropped");
     }
+    getInput()
     color("cyan")
-    box(player.pos, 4)
+    player.pos = vec(input.pos.x, player.pos.y)
+    renderShape("circle")
+}
 
-    //shapes.push({ pos: vec(50 - x, y)});
-    //color("light_cyan");
-    //rect(5, 0, 90, 5);
+function renderShape(shape) {
+    switch (shape) {
+        case "circle":
+            box(player.pos, 1)
+            break
+        case "square":
+            box(player.pos, 30)
+            break
+    }
+}
+
+function getInput() {
+    if (input.isJustPressed) {
+        console.log("Ball Dropped");
+        generateShape()
+    }
 }
 
 function generateShape() {
-    
+    var shape = box(player.pos, 10)
+    return shape
 }
 
 function init() {
-    player = {pos: vec(50, 10), vel: vec()};
+    player = {
+        pos: vec(G.W / 2, 10),
+        obj: null
+    }
+    player.obj = generateShape()
     shapes = [];
 }
 
