@@ -107,15 +107,15 @@ function getCircleIntersections(a, b) {
         return Math.sqrt((point2.x - point1.x) ** 2 + (point2.y - point1.y) ** 2);
     }
 
-    const distance = calcDistance(a.getCenter(), b.getCenter());
+    const distance = calcDistance(vec(a.x, a.y), vec(b.x, b.y));
     // if (distance > a.getRadius() + b.getRadius()) throw new Error("Circles out of range.");
-    const dx = b.getCenter().x - a.getCenter().x;
-    const dy = b.getCenter().y - a.getCenter().y;
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
     const unitdx = dx / distance;
     const unitdy = dy / distance;
     const baseDist1 = ((a.getRadius() * a.getRadius()) - (b.getRadius() * b.getRadius()) + (distance * distance)) / (2 * distance);
-    const px = a.getCenter().x + baseDist1 * unitdx;
-    const py = a.getCenter().y + baseDist1 * unitdy;
+    const px = a.x + baseDist1 * unitdx;
+    const py = a.y + baseDist1 * unitdy;
     const h = Math.sqrt(a.getRadius() * a.getRadius() - baseDist1 * baseDist1);
 
     return [
