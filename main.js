@@ -20,6 +20,7 @@ options = {
     theme: "shapeDark",
 };
 
+/** @type {{pos: Vector, obj: Circle | Rectangle | Triangle}} */
 let player;
 let shapes;
 
@@ -63,20 +64,24 @@ function update() {
         init()
     }
     getInput()
-    // player.obj.x = input.pos.x
-    // player.obj.update()
+    player.obj.x = input.pos.x
+    player.obj.update()
     
-    temp.update()
+    // temp.update()
 }
 
 function generateShape() {
     var random = Math.floor(Math.random() * (3 - 0) + 0)
     switch (random) {
         case ShapeTypes.CIRCLE:
-            player.obj = new Circle(input.pos.x, 10)
+            player.obj = new Circle(input.pos.x, 10, 10)
             break
         case ShapeTypes.RECT:
-            player.obj = new Rectangle(input.pos.x, 10)
+            player.obj = new Rectangle(input.pos.x, 10, 12, 8)
+            break
+        case ShapeTypes.TRIANGLE:
+            player.obj = new Triangle(input.pos.x, 10, 4)
+            break
     }
 }
 
