@@ -8,33 +8,33 @@ options = {
     theme: "shapeDark",
 };
 
-let player;
-let shapes;
-
-function update() {
-    if (!ticks) {
-        init()
-    };
-
-    if (input.isJustPressed) {
-        
-        console.log("Ball Dropped");
-    }
-    color("cyan")
-    box(player.pos, 4)
-
-    //shapes.push({ pos: vec(50 - x, y)});
-    //color("light_cyan");
-    //rect(5, 0, 90, 5);
-}
-
-function generateShape() {
-    
-}
+let pp;
 
 function init() {
-    player = {pos: vec(50, 10), vel: vec()};
-    shapes = [];
+   
 }
+
+
+function update() {
+
+    pp = vec();
+    color("green");
+    pp.set(clamp(input.pos.x, 5, 95), 15);
+    box(pp, 7 ,7);
+    
+    
+    if(input.isJustPressed){
+      while(pp.y < 90){
+        pp.y += 10;
+        console.log("After:");
+        console.log(pp.y);
+      }
+      if(pp.y > 90){
+        pp = undefined;
+      }else{
+        pp.set(clamp(input.pos.x, 5, 95), 15);
+      }
+    }
+  }
 
 addEventListener("load", onLoad);
