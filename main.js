@@ -1,4 +1,4 @@
-title = "Not Suika Game";
+title = "Popping Boba";
 
 description = `[Tap] to Drop`;
 
@@ -48,7 +48,7 @@ function update() {
 
   // Update and draw the shapes
   remove(shapes, (shape) => {
-    shape.radius += (shape.targetRadius - shape.radius) * 0.025;
+    shape.radius += (shape.targetRadius - shape.radius) * 0.02;
     shape.vel.y += 0.05;
 
     shape.pos.add(shape.vel);
