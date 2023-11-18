@@ -81,6 +81,7 @@ function update() {
             // @ts-ignore
             if (shape.color === otherShape.color) {
               // Combine shapes by adding radii
+              play("powerUp", { volume: 0.5 });
               shape.targetRadius += otherShape.radius;
               // console.log(`Circles of ${shape.color} and ${otherShape.color} are touching. Combined radius: ${shape.targetRadius}`);
              
